@@ -4,10 +4,10 @@
     ViewData["Title"] = "List";
 }
 
-<h1>List</h1>
+<h1>商品列表</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">新增商品</a>
 </p>
 <table class="table">
     <thead>
@@ -27,9 +27,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.SubCategoryId)
             </th>
-            <th>
+@*             <th>
                 @Html.DisplayNameFor(model => model.ProductPhoto)
-            </th>
+            </th> *@
             <th>
                 @Html.DisplayNameFor(model => model.UnitPrice)
             </th>
@@ -82,9 +82,8 @@
                 @Html.DisplayFor(modelItem => item.Cost)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("修改", "edit", "Product", new { id = item.ProductId }, new { Class = "btn btn-success" })
+                    @Html.ActionLink("刪除", "delete", "Product", new { id = item.ProductId }, new { onclick = "return confirm('您確定要刪除嗎??')", @class = "btn btn-danger" })
             </td>
         </tr>
 }
